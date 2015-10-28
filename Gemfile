@@ -1,5 +1,5 @@
 # Airhelp Gemfile
 source 'https://rubygems.org'
 
-gem 'thor'
-gem 'activemodel'
+# Specify your gem's dependencies in airhelp.gemspec
+gemspec

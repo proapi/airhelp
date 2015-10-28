@@ -30,14 +30,17 @@ class Processor
   def write
     CSV.open(@output, 'w', write_headers: true,
     headers: Record.headers) do |writer|
+      valid_index = 0
       @records.each do |record|
         record.process
         if record.valid?
           writer << record.to_a
+          valid_index += 1
         else
           @errors << record
         end
       end
+      puts "Records counter: #{valid_index}"
     end
   end
 
@@ -47,6 +50,7 @@ class Processor
       @errors.each do |record|
         writer << record.to_a
       end
+      puts "Errors counter: #{@errors.size}"
     end
   end
 

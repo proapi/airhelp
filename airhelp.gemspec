@@ -18,6 +18,6 @@ Gem::Specification.new do |s|
   s.required_rubygems_version = '>= 1.8.11'
 
   s.add_dependency 'bundler', '>= 1.10.0', '< 2.0'
-  s.add_dependency 'activemodel', '>= 4.2.0'
-  s.add_dependency 'thor', '>= 0.19.0'
+  s.add_dependency 'activemodel', '~> 4.2'
+  s.add_dependency 'thor', '~> 0.19'
 end

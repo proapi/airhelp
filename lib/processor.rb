@@ -2,14 +2,15 @@ require 'csv'
 
 class Processor
 
-  attr_accessor :input, :output, :records, :errors, :index
+  attr_accessor :input, :output, :records, :errors, :index, :options
 
-  def initialize(input, output)
+  def initialize(input, output, options)
     @input = input
     @output = output
     @records = Array.new
     @errors = Array.new
     @index = 0
+    @options = options
   end
 
   def start
@@ -41,7 +42,7 @@ class Processor
   end
 
   def errors
-    CSV.open('errors.csv', 'w', write_headers: true,
+    CSV.open(@options[:errors], 'w', write_headers: true,
     headers: Record.headers('errors')) do |writer|
       @errors.each do |record|
         writer << record.to_a
